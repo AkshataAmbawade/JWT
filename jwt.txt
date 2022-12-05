@@ -1,0 +1,60 @@
+jwt==> json web token ==> use for security purpose 
+jwt==>string==> encrypted string
+
+client ==> req 1 ==> login ==> (username,password) ============> server
+server ==> userid:17+role:admin+expdate:something+encrypted key= JWT 
+JWT ==> client  
+
+jwt is not sercure because it can't be decoded its sercure because we can not generate its encrypted key that's why JWT is sercure
+
+JWT is used to write the modern api according to the idustry standards
+
+
+# What is the JSON Web Token structure?
+In its compact form, JSON Web Tokens consist of three parts separated by dots (.), which are:
+
+Header
+Payload
+Signature
+
+Header:
+          {
+                "alg": "HS256",
+                "typ": "JWT"
+          }
+
+Payload:
+            {
+                "sub": "1234567890",
+                "name": "John Doe",
+                "admin": true
+            }
+
+There should not be any confidentional data in the 
+
+Signature:
+
+        To create the signature part you have to take the encoded header, the encoded payload, a secret, the algorithm specified in the header, and sign that.
+     
+         HMACSHA256(base64UrlEncode(header) + "." +(payload),secret)
+
+
+# Putting all together
+The output is three Base64-URL strings separated by dots that can be easily passed in HTML and HTTP environments, while being more compact when compared to XML-based standards such as SAML.
+
+The following shows a JWT that has the previous header and payload encoded, and it is signed with a secret. Encoded JWT
+
+            eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c
+
+
+----Authorization vs Authentication ----
+
+Authorization determines their access rights , its an process of verifying what they have to access to 
+
+Authentication verifyies the identity of a user or service
+
+
+
+
+## Cookies===>
+              Cookies are used to stroe the information of a web page in a remote browser , so that when same user comes back to that page , that information can be retrieved from the browser itself.
