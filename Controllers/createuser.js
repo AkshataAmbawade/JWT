@@ -9,7 +9,7 @@ const createusers=async(req,res)=>{
             const users= await user.insertMany(data);
             // console.log(users);
             // res.status(200).json(users)
-            const saved_user = await user.findOne({name:req.body.name})
+            const saved_user = await user.findOne({phoneNo:req.body.phoneNo})
             const token=jwt.sign({userId:saved_user._id},"qwertyuiopasdfghjklzxcvbnm",{expiresIn:"5d"});
             res.status(200).send({ "status": "success", "message": "Registration Success", "token": token })
 
